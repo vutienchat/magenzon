@@ -4,7 +4,8 @@ import Footer from "./Components/Footer";
 import Header from "./Components/Header";
 import Todo from "./Components/Todo";
 function App() {
-  const currentTodo = useRef(JSON.parse(localStorage.getItem("listTodo")));
+  const todoLocalStorage = JSON.parse(localStorage.getItem("listTodo")) || [];
+  const currentTodo = useRef(todoLocalStorage);
   const [listTodo, setListTodo] = useState(currentTodo.current);
   const [pageURL, setPageURL] = useState("");
   useEffect(() => {
